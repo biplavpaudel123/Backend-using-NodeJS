@@ -1,0 +1,41 @@
+const http= require('http')
+
+const request= http.request('http://google.com',(res)=>{
+    res.on('data',(chunk)=>{
+        console.log(`Data Chunk ${chunk}`);
+    });
+    res.on('end',()=>{
+        console.log('No more data');
+    })
+})
+
+request.end();
+
+
+// Alternative using object destructuring
+
+// const {request}= require('http')
+
+// const req= request('http://google.com',(res)=>{
+//     res.on('data',(chunk)=>{
+//         console.log(`Data Chunk ${chunk}`);
+//     });
+//     res.on('end',()=>{
+//         console.log('No more data');
+//     })
+// })
+
+// req.end();
+
+
+//alternative using get so that we dont have to req.end
+
+// http.get('http://google.com',(res)=>{
+//     res.on('data',(chunk)=>{
+//         console.log(`Data Chunk ${chunk}`);
+//     });
+//     res.on('end',()=>{
+//         console.log('No more data');
+//     })
+// })
+
